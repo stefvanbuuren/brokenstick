@@ -96,6 +96,15 @@ test_that("works if id in new_data is a factor", {
   expect_silent(predict(obj, new_data = dat))
 })
 
+dat <- dat[-(1:nrow(dat)), ]
+test_that("can handle new_data with zero rows", {
+  expect_silent(predict(obj, new_data = dat))
+})
+
+
+
+
+
 # We needed this to solve problem when new_data is a factor
 # obj1 <- brokenstick(hgt.z ~ age | id, data = smocc_200, knots = 1:2)
 # obj2 <- brokenstick(hgt.z ~ age | id, data = dat, knots = 1:2)
